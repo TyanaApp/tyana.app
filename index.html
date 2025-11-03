@@ -74,4 +74,33 @@
     }
 
     .tagline {
-      margin-top:
+      margin-top: 18px;
+      font-family: "Lakki Reddy", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      font-size: clamp(1.4rem, 2.7vw, 2rem);
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="video-wrapper">
+    <!-- Видео-фон -->
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="intro.mp4" type="video/mp4" />
+      <!-- Если видео не загрузится, останется просто чёрный фон -->
+    </video>
+
+    <!-- Текст поверх видео -->
+    <div class="overlay">
+      <div class="inner">
+        <div class="brand">
+          tyana<span class="dot">.</span>app
+        </div>
+        <div class="tagline">
+          Arriving
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
