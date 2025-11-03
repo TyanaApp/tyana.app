@@ -2,20 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>tyana.app — Coming soon</title>
+  <title>tyana.app — Soon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Красивый шрифт Poppins с Google Fonts -->
+  <!-- Шрифты: Baloo 2 (похож на заголовок с картинки) + Poppins для "Soon" -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #050814;
       --accent: #fbbf24;
       --text: #f9fafb;
-      --muted: #9ca3af;
+      --muted: #e5e7eb;
     }
 
     * {
@@ -26,42 +25,82 @@
 
     body {
       min-height: 100vh;
+      background: #000;
+      color: var(--text);
+    }
+
+    .video-wrapper {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .bg-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      filter: brightness(0.6);
+    }
+
+    .overlay {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at top, #1f2937 0, #050814 45%, #020617 100%);
-      color: var(--text);
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-    }
-
-    .wrapper {
       text-align: center;
       padding: 24px;
     }
 
-    h1 {
-      font-size: 40px;
-      letter-spacing: 0.18em;
+    .inner {
+      padding: 24px 32px;
+    }
+
+    .brand {
+      font-family: "Baloo 2", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: clamp(3.5rem, 7vw, 5.2rem); /* крупный заголовок */
+      letter-spacing: 0.12em;
       text-transform: lowercase;
-      font-weight: 500;
     }
 
     .dot {
       color: var(--accent);
     }
 
-    p {
-      margin-top: 16px;
-      font-size: 18px;
+    .tagline {
+      margin-top: 18px;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: clamp(1.1rem, 2.2vw, 1.6rem); /* меньше, но заметно */
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
       color: var(--muted);
     }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <h1>tyana<span class="dot">.</span>app</h1>
-    <p>Coming soon</p>
+  <div class="video-wrapper">
+    <!-- Видео-фон -->
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="intro.mp4" type="video/mp4" />
+      <!-- Если видео не загрузится, останется просто чёрный фон -->
+    </video>
+
+    <!-- Текст поверх видео -->
+    <div class="overlay">
+      <div class="inner">
+        <div class="brand">
+          tyana<span class="dot">.</span>app
+        </div>
+        <div class="tagline">
+          soon
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
